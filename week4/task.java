@@ -6,12 +6,12 @@ public class task {
     public static void main(String[] args) {
         /*1. Write a program that asks your name and prints “Hello your name” five times. Use a loop. */
         Scanner scan = new Scanner(System.in);
-        // System.out.print("Please enter your name: ");
-        // String name = scan.nextLine();
+        System.out.print("Please enter your name: ");
+        String name = scan.nextLine();
 
-        // for (int i = 0; i < 5; i++) {
-        //     System.out.println("Hello " + name);
-        // }
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Hello " + name);
+        }
 
         
 
@@ -58,6 +58,45 @@ public class task {
             }
             System.out.println();  
         }
+        /*Modify the above program by using a do..while loop so that it provides the user with the option to continue running the program and enter more inputs. For example:
+        Sample Run:
+        Enter a positive non-zero integer 4
+        Sum of 1 to 4 is 10
+        Do you want to continue? Enter ‘y’ for yes or any other character for no.
+        y
+        Enter a positive non-zero integer 3
+        Sum of 1 to 3 is 6
+        Do you want to continue? Enter ‘y’ for yes and any other character for no.
+        n. */
+        char continueChoice;
+
+        do {
+            System.out.print("Enter a positive non-zero integer: ");
+            int width1 = scan.nextInt();
+
+            if (width1 > 0) {
+                // Generate and print the square of asterisks
+                for (int i = 0; i < width1; i++) {
+                    for (int j = 0; j < width1; j++) {
+                        System.out.print("*");
+                    }
+                    System.out.println();
+                }
+
+                // Calculate and print the sum of integers from 1 to width
+                int sum = 0;
+                for (int i = 1; i <= width1; i++) {
+                    sum += i;
+                }
+                System.out.println("Sum of 1 to " + width1 + " is " + sum);
+            } else {
+                System.out.println("Please enter a positive non-zero integer.");
+            }
+
+            // Ask the user if they want to continue
+            System.out.print("Do you want to continue? Enter 'y' for yes or any other character for no: ");
+            continueChoice = scan.next().charAt(0);
+        } while (Character.toLowerCase(continueChoice) == 'y');
         /* 6. Write a program that reads the width and generates a corresponding triangle of *. For example, if width = 5, output is
         *
         **
@@ -96,6 +135,47 @@ public class task {
             num /= 10;
         }
         System.out.println("The reversed is "+ rev);
+
+        /*9. Write a program that reads ten integer numbers and outputs the number of inputs which are greater than 50, less than 50 or equal to 50. The program should also display the average of all numbers greater than 50 and the average of all numbers less than 50. */
+        int numbeq = 0;
+        int numbgre = 0 ;
+        int numbles = 0 ;
+        int sumnumbgre = 0 ;
+        int sumnumbless = 0;
+        System.out.println("Enter 10 numbers");
+        for (int i=0; i<10; i++){
+            int numb = scan.nextInt();
+            if (numb == 50){
+                numbeq = numbeq + 1;
+            }
+            else if (numb < 50){
+                numbles = numbles + 1;
+                sumnumbless = sumnumbless + numb;
+            }
+            else{
+                numbgre = numbgre + 1;
+                sumnumbgre= sumnumbgre+numb;
+            }
+
+
+        }
+        double avgofgre = sumnumbgre/numbgre;
+        double avgofless = sumnumbless/numbles;
+
+        System.out.println("Number of inputs greater than 50: " + numbgre);
+        System.out.println("Number of inputs less than 50: " + numbles);
+        System.out.println("Number of inputs equal to 50: " + numbeq);
+        System.out.println("Average of numbers greater than 50: " + avgofgre);
+        System.out.println("Average of numbers less than 50: " + avgofless);
+
+        /*10. Write a program that asks the user for a positive nonzero integer value. The program should use a loop to get the sum of all the integers from 1 up to the number entered. For example, if the user enters 50, the loop will find the sum of 1+2+3+4+….+50. */
+        System.out.println("Enter a positive non zero element");
+        int non = scan.nextInt();
+        int summ = 0;
+        for(int i = 1; i<non; i++){
+            summ = summ +i;
+        }
+        System.out.println("The sum is "+ summ);
         scan.close();
     }
     
