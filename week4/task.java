@@ -58,8 +58,45 @@ public class task {
             }
             System.out.println();  
         }
+        /* 6. Write a program that reads the width and generates a corresponding triangle of *. For example, if width = 5, output is
+        *
+        **
+        ***
+        ****
+        *****
+        Use a nested for loop to generate the above pattern. */
 
-    scan.close();
+        System.out.print("Please enter the width of the square: ");
+        int wid = scan.nextInt();
+
+        for (int i = 0; i < wid; i++) {  
+            for (int j = 0; j <= i; j++) {  
+                System.out.print("*");
+            }
+            System.out.println();  
+        }
+
+        /*7. Write a program to calculate the HCF of Two given numbers. */
+        System.out.println("Enter two numbers");
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        System.out.println("The HCF is "+a);
+        /*8. Write a program that prompts the user to input an integer and then outputs the number with the digits reversed. For example, if the input is 12345, the output should be 54321. */
+        System.out.println("Enter a number");
+        int num = scan.nextInt();
+        int rev = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            rev = rev * 10 + digit;
+            num /= 10;
+        }
+        System.out.println("The reversed is "+ rev);
+        scan.close();
     }
     
 }
